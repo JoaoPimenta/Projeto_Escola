@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block body %}
+<div class="container">
+  <hr />
+  <h1 style="text-align: center">Professores</h1>
+  <hr />
+</div>
+<div class="container">
+  <table class="table table-bordered" style="border-color: gray">
+    <thead class="thead-dark">
+      <tr style="text-align: center">
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Idade</th>
+        <th scope="col">Matéria</th>
+        <th scope="col">Observações</th>
+        <th scope="col">Turmas</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if lista_professor %} {% for professor in lista_professor %}
+      <tr style="text-align: center">
+        <td>{{ professor.id }}</td>
+        <td>{{ professor.nome }}</td>
+        <td>{{ professor.idade }}</td>
+        <td>{{ professor.materia }}</td>
+        <td>{{ professor.observacoes }}</td>
+        <td>{{ professor.turmas }}</td>
+      </tr>
+      {% endfor %} {% else %}
+      <tr>
+        <td colspan="6" style="text-align: center">
+          Nenhum(a) professor(a) cadastrado(a)
+        </td>
+      </tr>
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+{% endblock%}

@@ -1,0 +1,33 @@
+{% extends "base.html"%} {% block body %}
+<div class="container">
+  <hr />
+  <h1 style="text-align: center">Read</h1>
+  <hr />
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <button class="btn btn-light" type="button">
+      <a
+        class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover"
+        style="color: black; text-decoration: none; font-weight: bold"
+        href="/read/professor"
+        >Professores</a
+      >
+    </button>
+    <button class="btn btn-light" type="button">
+      <a
+        class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover"
+        style="color: black; text-decoration: none; font-weight: bold"
+        href="/read/alunos"
+        >Alunos</a
+      >
+    </button>
+    <button class="btn btn-light" type="button">
+      <a
+        class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover"
+        style="color: black; text-decoration: none; font-weight: bold"
+        href="/read/turmas"
+        >Turmas</a
+      >
+    </button>
+  </div>
+</div>
+{% endblock %}

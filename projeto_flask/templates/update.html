@@ -1,0 +1,111 @@
+{% extends "base.html" %} {% block body %}
+<div class="container">
+  <hr />
+  <h1 style="text-align: center">Update</h1>
+  <hr />
+  <div class="row">
+    <div class="col">
+      <form action="" method="POST" class="border p-3 mt-2">
+        {{atualizar_professor.csrf_token}}
+        <legend>Atualizar Professor</legend>
+        <fieldset>
+          <div class="form-group">
+            {{atualizar_professor.id.label(class="form-control-label")}}
+            {{atualizar_professor.id(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_professor.nome.label(class="form-control-label")}}
+            {{atualizar_professor.nome(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_professor.idade.label(class="form-control-label")}}
+            {{atualizar_professor.idade(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_professor.materia.label(class="form-control-label")}}
+            {{atualizar_professor.materia(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_professor.observacoes.label(class="form-control-label")}}
+            {{atualizar_professor.observacoes(class="form-control")}}
+          </div>
+        </fieldset>
+        {{atualizar_professor.confirmacao_update_prof(class="btn btn-warning
+        mt-2")}}
+      </form>
+    </div>
+    <div class="col">
+      <form action="" method="POST" class="border p-3 mt-2">
+        {{atualizar_aluno.csrf_token}}
+        <legend>Atualizar Aluno</legend>
+        <fieldset>
+          <div class="form-group">
+            {{atualizar_aluno.id.label(class="form-control-label")}}
+            {{atualizar_aluno.id(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_aluno.nome.label(class="form-control-label")}}
+            {{atualizar_aluno.nome(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_aluno.idade.label(class="form-control-label")}}
+            {{atualizar_aluno.idade(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_aluno.turma_id.label(class="form-control-label")}}
+            {{atualizar_aluno.turma_id(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_aluno.data_nascimento.label(class="form-control-label")}}
+            {{atualizar_aluno.data_nascimento(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_aluno.nota_semestre1.label(class="form-control-label")}}
+            {{atualizar_aluno.nota_semestre1(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_aluno.nota_semestre2.label(class="form-control-label")}}
+            {{atualizar_aluno.nota_semestre2(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_aluno.media.label(class="form-control-label")}}
+            {{atualizar_aluno.media(class="form-control")}}
+          </div>
+        </fieldset>
+        {{atualizar_aluno.confirmacao_update_aluno(class="btn btn-warning
+        mt-2")}}
+      </form>
+    </div>
+    <div class="col">
+      <form action="" method="POST" class="border p-3 mt-2">
+        {{atualizar_turma.csrf_token}}
+        <legend>Atualizar Turma</legend>
+        <fieldset>
+          <div class="form-group">
+            {{atualizar_turma.id.label(class="form-control-label")}}
+            {{atualizar_turma.id(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_turma.nome.label(class="form-control-label")}}
+            {{atualizar_turma.nome(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_turma.descricao.label(class="form-control-label")}}
+            {{atualizar_turma.descricao(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_turma.professor_id.label(class="form-control-label")}}
+            {{atualizar_turma.professor_id(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{atualizar_turma.ativo.label(class="form-check-imput-label")}}
+            {{atualizar_turma.ativo(class="form-check-imput")}}
+          </div>
+        </fieldset>
+        {{atualizar_turma.confirmacao_update_turma(class="btn btn-warning
+        mt-2")}}
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

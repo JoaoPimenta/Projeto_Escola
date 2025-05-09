@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block body %}
+<div class="container">
+  <hr />
+  <h1 style="text-align: center">Turmas</h1>
+  <hr />
+</div>
+<div class="container">
+  <table class="table table-bordered" style="border-color: gray">
+    <thead class="thead-dark">
+      <tr style="text-align: center">
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Professor</th>
+        <th scope="col">Ativo</th>
+        <th scope="col">Alunos</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if lista_turmas %} {% for turma in lista_turmas %}
+      <tr style="text-align: center">
+        <td>{{ turma.id }}</td>
+        <td>{{ turma.nome }}</td>
+        <td>{{ turma.descricao }}</td>
+        <td>{{ turma.professor_id }}</td>
+        <td>{{ turma.ativo }}</td>
+        <td>{{ turma.alunos }}</td>
+      </tr>
+      {% endfor %} {% else %}
+      <tr>
+        <td colspan="6" style="text-align: center">Nenhuma Turma cadastrada</td>
+      </tr>
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+{% endblock%}

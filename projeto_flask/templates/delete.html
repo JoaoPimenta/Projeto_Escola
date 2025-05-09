@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block body %}
+<div class="container">
+  <hr />
+  <h1 style="text-align: center">Delete</h1>
+  <hr />
+  <div class="row">
+    <div class="col">
+      <form action="" method="POST" class="border p-3 mt-2">
+        {{deletar_professor.csrf_token}}
+        <legend>Deletar Professor</legend>
+        <fieldset>
+          <div class="form-group">
+            {{deletar_professor.id.label(class="form-control-label")}}
+            {{deletar_professor.id(class="form-control")}}
+          </div>
+        </fieldset>
+        {{deletar_professor.confirmacao_delete_prof(class="btn btn-danger
+        mt-2")}}
+      </form>
+    </div>
+    <div class="col">
+      <form action="" method="POST" class="border p-3 mt-2">
+        {{deletar_aluno.csrf_token}}
+        <legend>Deletar Aluno</legend>
+        <fieldset>
+          <div class="form-group">
+            {{deletar_aluno.id.label(class="form-control-label")}}
+            {{deletar_aluno.id(class="form-control")}}
+          </div>
+        </fieldset>
+        {{deletar_aluno.confirmacao_delete_aluno(class="btn btn-danger mt-2")}}
+      </form>
+    </div>
+    <div class="col">
+      <form action="" method="POST" class="border p-3 mt-2">
+        {{deletar_turma.csrf_token}}
+        <legend>Deletar Turma</legend>
+        <fieldset>
+          <div class="form-group">
+            {{deletar_turma.id.label(class="form-control-label")}}
+            {{deletar_turma.id(class="form-control")}}
+          </div>
+        </fieldset>
+        {{deletar_turma.confirmacao_delete_turma(class="btn btn-danger mt-2")}}
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

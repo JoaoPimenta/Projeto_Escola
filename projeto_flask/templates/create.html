@@ -1,0 +1,97 @@
+{% extends "base.html" %} {% block body %}
+<div class="container">
+  <hr />
+  <h1 style="text-align: center">Create</h1>
+  <hr />
+  <div class="row">
+    <div class="col">
+      <form action="" method="POST" class="border p-3 mt-2">
+        {{criar_professor.csrf_token}}
+        <legend>Criar Professor</legend>
+        <fieldset>
+          <div class="form-group">
+            {{criar_professor.nome.label(class="form-control-label")}}
+            {{criar_professor.nome(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{criar_professor.idade.label(class="form-control-label")}}
+            {{criar_professor.idade(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{criar_professor.materia.label(class="form-control-label")}}
+            {{criar_professor.materia(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{criar_professor.observacoes.label(class="form-control-label")}}
+            {{criar_professor.observacoes(class="form-control")}}
+          </div>
+        </fieldset>
+        {{criar_professor.confirmacao_create_prof(class="btn btn-success
+        mt-2")}}
+      </form>
+    </div>
+    <div class="col">
+      <form action="" method="POST" class="border p-3 mt-2">
+        {{criar_aluno.csrf_token}}
+        <legend>Criar Aluno</legend>
+        <fieldset>
+          <div class="form-group">
+            {{criar_aluno.nome.label(class="form-control-label")}}
+            {{criar_aluno.nome(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{criar_aluno.idade.label(class="form-control-label")}}
+            {{criar_aluno.idade(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{criar_aluno.turma_id.label(class="form-control-label")}}
+            {{criar_aluno.turma_id(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{criar_aluno.data_nascimento.label(class="form-control-label")}}
+            {{criar_aluno.data_nascimento(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{criar_aluno.nota_semestre1.label(class="form-control-label")}}
+            {{criar_aluno.nota_semestre1(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{criar_aluno.nota_semestre2.label(class="form-control-label")}}
+            {{criar_aluno.nota_semestre2(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{criar_aluno.media.label(class="form-control-label")}}
+            {{criar_aluno.media(class="form-control")}}
+          </div>
+        </fieldset>
+        {{criar_aluno.confirmacao_create_aluno(class="btn btn-success mt-2")}}
+      </form>
+    </div>
+    <div class="col">
+      <form action="" method="POST" class="border p-3 mt-2">
+        {{criar_turma.csrf_token}}
+        <legend>Criar Turma</legend>
+        <fieldset>
+          <div class="form-group">
+            {{criar_turma.nome.label(class="form-control-label")}}
+            {{criar_turma.nome(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{criar_turma.descricao.label(class="form-control-label")}}
+            {{criar_turma.descricao(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{criar_turma.professor_id.label(class="form-control-label")}}
+            {{criar_turma.professor_id(class="form-control")}}
+          </div>
+          <div class="form-group">
+            {{criar_turma.ativo.label(class="form-check-imput-label")}}
+            {{criar_turma.ativo(class="form-check-imput")}}
+          </div>
+        </fieldset>
+        {{criar_turma.confirmacao_create_turma(class="btn btn-success mt-2")}}
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
