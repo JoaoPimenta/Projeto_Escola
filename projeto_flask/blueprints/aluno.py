@@ -7,3 +7,10 @@ from blueprints import aluno_bp
 def aluno():
     lista_alunos = database.session.query(Aluno).all()
     return render_template("alunos.html", lista_alunos=lista_alunos)
+
+@aluno_bp.route("/boletim/<int:aluno_id>")
+def ver_boletim(aluno_id):
+    aluno = database.session.query(Aluno).get_or_404(aluno_id)
+    return render_template("boletim.html", aluno=aluno)
+
+

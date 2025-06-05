@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Boletim de {{ aluno.nome }}</h2>
+  <ul>
+    <li><strong>Nota Semestre 1:</strong> {{ aluno.nota_semestre1 }}</li>
+    <li><strong>Nota Semestre 2:</strong> {{ aluno.nota_semestre2 }}</li>
+    <li><strong>Média Final:</strong> {{ aluno.media }}</li>
+  </ul>
+  <a href="{{ url_for('aluno.aluno') }}">Voltar para lista de alunos</a>
+{% endblock %}
