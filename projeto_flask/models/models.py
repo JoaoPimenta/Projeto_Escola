@@ -1,35 +1,31 @@
-from projeto_flask import app
-from projeto_flask import database
+from projeto_flask.db import database  # Importar o database diretamente
+from sqlalchemy import Column, Integer, String, Text, Date, Float, Boolean
 
 class Professor(database.Model):
     __tablename__ = "professor"
-    id = database.Column(database.Integer, primary_key=True)
-    nome = database.Column(database.String(100), nullable=False)
-    idade = database.Column(database.Integer, nullable=False)
-    materia = database.Column(database.String(100), nullable=False)
-    observacoes = database.Column(database.Text, nullable=True)
+    id = Column(Integer, primary_key=True)
+    nome = Column(String(100), nullable=False)
+    idade = Column(Integer, nullable=False)
+    materia = Column(String(100), nullable=False)
+    observacoes = Column(Text, nullable=True)
     turmas = database.relationship('Turma', backref='professor', lazy=True)
 
 class Turma(database.Model):
     __tablename__ = "turma"
-    id = database.Column(database.Integer, primary_key=True)
-    nome = database.Column(database.String(100), nullable=False)
-    descricao = database.Column(database.Text, nullable=False)
-    professor_id = database.Column(database.Integer, database.ForeignKey('professor.id'), nullable=False)
-    ativo = database.Column(database.Boolean, nullable=True, default=True)
+    id = Column(Integer, primary_key=True)
+    nome = Column(String(100), nullable=False)
+    descricao = Column(Text, nullable=False)
+    professor_id = Column(Integer, database.ForeignKey('professor.id'), nullable=False)
+    ativo = Column(Boolean, nullable=True, default=True)
     alunos = database.relationship('Aluno', backref='turma', lazy=True)
 
 class Aluno(database.Model):
     __tablename__ = "aluno"
-    id = database.Column(database.Integer, primary_key=True)
-    nome = database.Column(database.String(100), nullable=False)
-    idade = database.Column(database.Integer, nullable=False)
-    turma_id = database.Column(database.Integer, database.ForeignKey('turma.id'), nullable=False)
-    data_nascimento = database.Column(database.Date, nullable=False)
-    nota_semestre1 = database.Column(database.Float, nullable=False)
-    nota_semestre2 = database.Column(database.Float, nullable=False)
-    media = database.Column(database.Float, nullable=False)
-    
-with app.app_context():
-    database.create_all()
-    
+    id = Column(Integer, primary_key=True)
+    nome = Column(String(100), nullable=False)
+    idade = Column(Integer, nullable=False)
+    turma_id = Column(Integer, database.ForeignKey('turma.id'), nullable=False)
+    data_nascimento = Column(Date, nullable=False)
+    nota_semestre1 = Column(Float, nullable=False)
+    nota_semestre2 = Column(Float, nullable=False)
+    media = Column(Float, nullable=False)

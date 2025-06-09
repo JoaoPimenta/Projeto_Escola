@@ -1,37 +1,34 @@
-{% extends "base.html" %} {% block body %}
+{% extends "base.html" %}
+{% block body %}
 <div class="container">
   <hr />
-  <h1 style="text-align: center">Turmas</h1>
+  <h1 style="text-align: center">Read</h1>
   <hr />
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <button class="btn btn-light" type="button">
+      <a
+        class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover"
+        style="color: black; text-decoration: none; font-weight: bold"
+        href="{{ url_for('crud_bp.read_professor') }}"
+        >Professores</a
+      >
+    </button>
+    <button class="btn btn-light" type="button">
+      <a
+        class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover"
+        style="color: black; text-decoration: none; font-weight: bold"
+        href="{{ url_for('crud_bp.read_alunos') }}"
+        >Alunos</a
+      >
+    </button>
+    <button class="btn btn-light" type="button">
+      <a
+        class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover"
+        style="color: black; text-decoration: none; font-weight: bold"
+        href="{{ url_for('crud_bp.read_turmas') }}"
+        >Turmas</a
+      >
+    </button>
+  </div>
 </div>
-<div class="container">
-  <table class="table table-bordered" style="border-color: gray">
-    <thead class="thead-dark">
-      <tr style="text-align: center">
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Descrição</th>
-        <th scope="col">Professor</th>
-        <th scope="col">Ativo</th>
-        <th scope="col">Alunos</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% if lista_turmas %} {% for turma in lista_turmas %}
-      <tr style="text-align: center">
-        <td>{{ turma.id }}</td>
-        <td>{{ turma.nome }}</td>
-        <td>{{ turma.descricao }}</td>
-        <td>{{ turma.professor_id }}</td>
-        <td>{{ turma.ativo }}</td>
-        <td>{{ turma.alunos }}</td>
-      </tr>
-      {% endfor %} {% else %}
-      <tr>
-        <td colspan="6" style="text-align: center">Nenhuma Turma cadastrada</td>
-      </tr>
-      {% endif %}
-    </tbody>
-  </table>
-</div>
-{% endblock%}
+{% endblock %}

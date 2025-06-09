@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField, FloatField, DateField, BooleanField, TextAreaField
+from wtforms import StringField, SubmitField, IntegerField, FloatField, DateField, BooleanField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, NumberRange
 
 class criarProfessor(FlaskForm):
@@ -12,7 +12,7 @@ class criarProfessor(FlaskForm):
 class criarAluno(FlaskForm):
     nome = StringField("Nome: ", validators=[DataRequired()])
     idade = IntegerField("Idade: ", validators=[DataRequired(), NumberRange(min=1, max=100, message="Números de 0 a 100")])
-    turma_id = IntegerField("ID da Turma: ", validators=[DataRequired()])
+    turma_id = SelectField("Turma:", coerce=int, validators=[DataRequired()])
     data_nascimento = DateField("Data de Nascimento: ", validators=[DataRequired()])
     nota_semestre1 = FloatField("Nota do 1º Semestre: ", validators=[DataRequired()])
     nota_semestre2 = FloatField("Nota do 2º Semestre: ", validators=[DataRequired()])
