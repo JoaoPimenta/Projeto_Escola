@@ -98,6 +98,38 @@ def turma():
     lista_turmas = database.session.query(Turma).all()
     return render_template("turmas.html", lista_turmas=lista_turmas)
 
+@crud_bp.route("/relatorio/turma/<int:id>")
+def relatorio_turma(id):
+    turma = Turma.query.get_or_404(id)
+    alunos = Aluno.query.filter_by(turma_id=id).all()
+
+    if not alunos:
+        flash("Essa turma não possui alunos cadastrados.", "alert-warning")
+        return redirect(url_for("crud_bp.turma"))
+
+    medias = [aluno.media for aluno in alunos if aluno.media is not None]
+    if not medias:
+        flash("Nenhum aluno possui média cadastrada.", "alert-warning")
+        return redirect(url_for("crud_bp.turma"))
+
+    media_geral = sum(medias) / len(medias)
+    aluno_maior_media = max(alunos, key=lambda a: a.media or 0)
+    aluno_menor_media = min(alunos, key=lambda a: a.media or 0)
+    aprovados = len([a for a in alunos if (a.media or 0) >= 6])
+    reprovados = len(alunos) - aprovados
+
+    return render_template(
+        "relatorio_turma.html",
+        turma=turma,
+        media_geral=media_geral,
+        aluno_maior_media=aluno_maior_media,
+        aluno_menor_media=aluno_menor_media,
+        aprovados=aprovados,
+        reprovados=reprovados,
+        total_alunos=len(alunos),
+        alunos=alunos,
+    )
+
 # Update route
 @crud_bp.route("/update", methods=["GET", "POST"])
 def update():
@@ -214,5 +246,10 @@ def delete():
         except Exception as e:
             database.session.rollback()
             flash("Erro ao deletar Turma: " + str(e), "alert-danger")
+
+
+
+
+
 
     return render_template("delete.html", deletar_professor=deletar_professor, deletar_aluno=deletar_aluno, deletar_turma=deletar_turma)
