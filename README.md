@@ -36,4 +36,4 @@ Um sistema web simples desenvolvido com **Flask** para gerenciar turmas, alunos 
    
 📄 Licença
 
-Projeto desenvolvido para fins de estudo
+Projeto desenvolvido para aula de software product: Analysis & Specification
