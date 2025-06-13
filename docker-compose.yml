@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: "projeto"  # Nome do banco de dados
+      MYSQL_USER: projeto_user
+      MYSQL_PASSWORD: projetopass
+    ports:
+      - "3307:3306"  # Mapeia a porta 3306 do contêiner para a 3307 do host
+    volumes:
+      - db_data:/var/lib/mysql
+
+  web:
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - SQLALCHEMY_DATABASE_URI=mysql+pymysql://projeto_user:projetopass@db:3306/projeto  # Corrigido para usar o nome correto do banco de dados
+      - FLASK_RUN_HOST=0.0.0.0
+      - FLASK_RUN_PORT=8000
+      - FLASK_APP=app.py
+    volumes:
+      - .:/app
+
+volumes:
+  db_data:

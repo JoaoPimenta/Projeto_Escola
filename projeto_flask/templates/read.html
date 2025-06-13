@@ -1,4 +1,5 @@
-{% extends "base.html"%} {% block body %}
+{% extends "base.html" %}
+{% block body %}
 <div class="container">
   <hr />
   <h1 style="text-align: center">Read</h1>
@@ -8,7 +9,7 @@
       <a
         class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover"
         style="color: black; text-decoration: none; font-weight: bold"
-        href="/read/professor"
+        href="{{ url_for('crud_bp.professor') }}"
         >Professores</a
       >
     </button>
@@ -16,7 +17,7 @@
       <a
         class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover"
         style="color: black; text-decoration: none; font-weight: bold"
-        href="/read/alunos"
+        href="{{ url_for('crud_bp.aluno') }}"
         >Alunos</a
       >
     </button>
@@ -24,7 +25,7 @@
       <a
         class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover"
         style="color: black; text-decoration: none; font-weight: bold"
-        href="/read/turmas"
+        href="{{ url_for('crud_bp.turma') }}"
         >Turmas</a
       >
     </button>

@@ -14,19 +14,18 @@
   <body style="background-color: rgba(211, 211, 211, 0.522);">
     <ul class="nav justify-content-center">
       <li class="nav-item" style="font-weight: bold;">
-        <a style="color: blueviolet;" class="nav-link" aria-current="page" href="{{url_for('homepage')}}"
-          >Home</a
-        >
+        <a style="color: blueviolet;" class="nav-link" aria-current="page" href="{{ url_for('crud_bp.homepage') }}">
+          Home
+        </a>
       </li>
       <li class="nav-item dropdown" style="font-weight: bold;">
         <a style="color: blueviolet;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">CRUD</a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a style="color: blueviolet;" class="dropdown-item" href="{{url_for('create')}}">Create</a></li>
-            <li><a style="color: blueviolet;" class="dropdown-item" href="{{url_for('read')}}">Read</a></li>
-            <li><a style="color: blueviolet;" class="dropdown-item" href="{{url_for('update')}}">Update</a></li>
-            <li><a style="color: blueviolet;" class="dropdown-item" href="{{url_for('delete')}}">Delete</a></li>
+            <li><a style="color: blueviolet;" class="dropdown-item" href="{{ url_for('crud_bp.create') }}">Create</a></li>
+            <li><a style="color: blueviolet;" class="dropdown-item" href="{{ url_for('crud_bp.read') }}">Read</a></li>
+            <li><a style="color: blueviolet;" class="dropdown-item" href="{{ url_for('crud_bp.update') }}">Update</a></li>
+            <li><a style="color: blueviolet;" class="dropdown-item" href="{{ url_for('crud_bp.delete') }}">Delete</a></li>
         </ul>
-      </li>
       </li>
     </ul>
     <script
@@ -38,7 +37,7 @@
       {% with mensagens = get_flashed_messages(with_categories=True) %}
         {% if mensagens %}
           {% for categoria, mensagem in mensagens %}
-            <div class="alert {{ categoria }}">{{mensagem}}</div>
+            <div class="alert {{ categoria }}">{{ mensagem }}</div>
           {% endfor %}
       {% endif %}
       {% endwith %}

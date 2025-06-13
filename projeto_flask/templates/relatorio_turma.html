@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+  <h1>Relatório da Turma: {{ turma.nome }}</h1>
+  <h4>Professor: {{ turma.professor.nome }}</h4>
+  <hr />
+
+  <p><strong>Média Geral da Turma:</strong> {{ "%.2f"|format(media_geral) }}</p>
+  <p><strong>Total de Alunos:</strong> {{ total_alunos }}</p>
+  <p><strong>Alunos Aprovados:</strong> {{ aprovados }}</p>
+  <p><strong>Alunos Reprovados:</strong> {{ reprovados }}</p>
+
+  <h3>Aluno com Maior Média:</h3>
+  <ul>
+    <li>ID: {{ aluno_maior_media.id }}</li>
+    <li>Nome: {{ aluno_maior_media.nome }}</li>
+    <li>Média: {{ aluno_maior_media.media }}</li>
+  </ul>
+
+  <h3>Aluno com Menor Média:</h3>
+  <ul>
+    <li>ID: {{ aluno_menor_media.id }}</li>
+    <li>Nome: {{ aluno_menor_media.nome }}</li>
+    <li>Média: {{ aluno_menor_media.media }}</li>
+  </ul>
+
+  <hr />
+  <h3>Lista dos Alunos:</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Média</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for aluno in alunos %}
+      <tr>
+        <td>{{ aluno.id }}</td>
+        <td>{{ aluno.nome }}</td>
+        <td>{{ aluno.media }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{{ url_for('crud_bp.turma') }}" class="btn btn-secondary">Voltar para Turmas</a>
+</div>
+{% endblock %}

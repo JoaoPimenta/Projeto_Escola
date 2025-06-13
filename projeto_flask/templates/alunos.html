@@ -1,4 +1,5 @@
-{% extends "base.html" %} {% block body %}
+{% extends "base.html" %}
+{% block body %}
 <div class="container">
   <hr />
   <h1 style="text-align: center">Alunos</h1>
@@ -19,7 +20,8 @@
       </tr>
     </thead>
     <tbody>
-      {% if lista_alunos %} {% for aluno in lista_alunos %}
+      {% if lista_alunos %}
+      {% for aluno in lista_alunos %}
       <tr style="text-align: center">
         <td>{{ aluno.id }}</td>
         <td>{{ aluno.nome }}</td>
@@ -30,7 +32,8 @@
         <td>{{ aluno.nota_semestre2 }}</td>
         <td>{{ aluno.media }}</td>
       </tr>
-      {% endfor %} {% else %}
+      {% endfor %}
+      {% else %}
       <tr>
         <td colspan="8" style="text-align: center">
           Nenhum(a) Aluno(a) cadastrado(a)
@@ -40,4 +43,4 @@
     </tbody>
   </table>
 </div>
-{% endblock%}
+{% endblock %}
